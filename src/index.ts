@@ -16,7 +16,7 @@ export interface Options {
 }
 
 export default class JsonSchemaTypescriptResolver {
-    public order
+    public order: number
     protected program: Program
     protected tsconfigPath: string
     protected sourceFilesDir: string
@@ -28,7 +28,7 @@ export default class JsonSchemaTypescriptResolver {
     }
 
     public read = (file: JsonParserFile): JSONSchema6 => {
-        return this.getFileDefinitions(file.url)
+        return this.getFileDefinitions(this.resolveAlias(file.url))
     }
 
     public constructor({
@@ -45,6 +45,17 @@ export default class JsonSchemaTypescriptResolver {
 
     public preload() {
         this.getProgram()
+    }
+
+    // Should be Typescript native but I don't find how ... small shitty code to fix it (for me ahah)
+    protected resolveAlias(file: string) {
+        const paths = this.getProgram().getCompilerOptions().paths || {}
+        const pathsAlias = Object.keys(paths).filter(key => key.includes('/*'))
+
+        return pathsAlias.reduce((file, alias) => {
+            const resolve = paths[alias][0]
+            return file.replace(alias.replace('*', ''), resolve.replace('*', ''))
+        }, file)
     }
 
     protected getFileDefinitions(file: string): JSONSchema6 {

@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/gallofeliz/json-schema-typescript-resolver.git"
   },
-  "author": "",
+  "author": "Gallo Feliz",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/gallofeliz/json-schema-typescript-resolver/issues"
