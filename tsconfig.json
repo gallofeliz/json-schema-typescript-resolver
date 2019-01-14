@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "noUnusedLocals": true,
+        "noEmitOnError": true,
+        "module": "umd",
+        "noUnusedParameters": true,
+        "declaration": true,
+        "outDir": "./dist/",
+        "lib":["es2017"],
+        "baseUrl": ".",
+        "paths": {
+            "typescript-json-schema": ["node_modules/typescript-json-schema/typescript-json-schema.d.ts"],
+            "typescript": ["node_modules/typescript/lib/typescript"]
+        }
+    },
+   "include": ["src"],
+   "exclude": ["node_modules"]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "json-schema-typescript-resolver",
+  "version": "1.0.0",
+  "description": "Typescript resolver for json-schema",
+  "main": "dist/index.js",
+  "dependencies": {
+    "glob": "^7.1.3",
+    "typescript-json-schema": "^0.34.0"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/json-schema": "^7.0.1",
+    "@types/node": "^10.12.18",
+    "typescript": "^3.2.2"
+  },
+  "scripts": {
+    "build": "rm -Rf dist && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gallofeliz/json-schema-typescript-resolver.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gallofeliz/json-schema-typescript-resolver/issues"
+  },
+  "homepage": "https://github.com/gallofeliz/json-schema-typescript-resolver#readme"
+}
